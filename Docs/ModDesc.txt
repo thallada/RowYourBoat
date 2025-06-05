@@ -211,6 +211,10 @@ This mod was designed specifically with the [url=https://www.nexusmods.com/obliv
 [*][url=https://www.nexusmods.com/oblivionremastered/mods/1790]Eli's Waterfront Shack Overhaul[/url]﻿: fully-compatible, spruces up the exterior of the shack
 [/list]
 
+[size=5]Source[/size]
+
+I keep all of the scripts and files for this mod on [url=https://github.com/thallada/RowYourBoat]github[/url] (and [url=https://git.hallada.net/thallada/RowYourBoat]here[/url]). Everything is MIT licensed if anyone would like to reuse or build off this mod.
+
 [size=5]Credits[/size]
 
 [list]
