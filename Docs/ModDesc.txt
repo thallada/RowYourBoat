@@ -1,0 +1,223 @@
+[size=5][youtube]SE55cqIZNp4[/youtube]
+
+Features[/size]
+
+[b]🚣 Movement & Navigation[/b]
+[list]
+[*]Cast the [b]Row spell[/b] to propel forward (or backward while sneaking) at the cost of fatigue
+[*]Intuitive steering - boat automatically turns towards where you looking
+[*]Toggle "Lock Heading" to maintain course while you look around freely
+[*]Auto-row modes for hands-free forward or backward travel
+[*]Multiple boarding options ensure you can always get back on deck
+[/list]
+[b]🌊 Immersive Physics & Realism[/b]
+[list]
+[*]Dynamic collision detection prevents merging with terrain and obstacles
+[*]Realistic wave simulation rocks the boat based on speed and weather conditions
+[*]Player position affects boat balance and tilt
+[*]Smooth, frame rate-independent movement ensures consistent performance
+[/list]
+[b]🗺️ Convenience Features[/b]
+[list]
+[*]Drag the boat overland between bodies of water and it will naturally rest on terrain
+[*]Summon your boat from anywhere inside or outside Tamriel
+[*]Automatic map marker tracks your boat's location once stationary
+[*]Interactive menu system for all boat commands and options
+[*]Functional seat for fishing or enjoying the view while anchored
+[/list]
+[b]🛠️ Purchasable Upgrades[/b]
+[list]
+[*][b]Storage Chest[/b]: Secure, non-respawning container hidden beneath the seat
+[*][b]Lamp[/b]: Toggleable bow-mounted lamp (also toggleable with fire/frost spells)
+[*][b]Rope Ladder[/b]: Auto-deploys when you fall overboard for easy re-boarding
+[/list]
+[b]📚 Documentation & Customization[/b]
+[list]
+[*]Comprehensive in-game manual written in lore-friendly style
+[*]Appendix of console commands for fine-tuning boat behavior
+[*]Adjust everything from rowing speed to wave intensity
+[*]Full compatibility with both vanilla and modded environments
+[/list]
+[b]WARNING: this mod is a script-heavy mod. You may experience some performance impact, especially with a weak CPU. This mod is pushing the limits of the script engine. I’ve spent a lot of time to reduce the performance impact and minimize script execution when the boat is not in use. I personally don’t notice an FPS impact but your mileage may vary.[/b]
+
+
+[size=5]Installation[/size]
+
+[size=4]Requirements[/size]
+
+[list]
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/32]UE4SS[/url]﻿: hard requirement. Requirement of UE4SS TESSyncMapInjector.
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/1272]UE4SS TesSyncMapInjector[/url]: hard requirement. The rowboat won’t show up in-game without this.
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/1966]MagicLoader 2[/url]﻿: soft requirement. Fixes the map marker and row spell effect showing up as `<MISSING STRING TABLE ENTRY>`
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/282]OBSE64[/url]﻿: soft requirement. Needed for [font=Courier New][NL][/font] tag remover. I may use OBSE64 functions in the future as they become available.
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/473]NL-Tag Remover[/url]﻿: soft requirement. Gets rid of ugly [font=Courier New][NL][/font] prefixes on all the text added by this mod.
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/145]Baka Achievement Enabler[/url]﻿: optionally recommended. If you plan on tweaking the boat’s behavior it requires use of the console which would disable achievements without this mod.
+[/list]
+Please double check that you have set up TesSyncMapInjector correctly before posting a bug.
+
+[size=4]Install
+[/size]
+Easiest method should be installing using a mod manager like Vortex which should automatically install files in the correct location.
+
+If you are installing manually:
+
+[list]
+[*]Extract the contents of the ZIP file to [font=Courier New]<game folder>/OblivionRemastered/Content/Dev/ObvData/Data/[/font]
+[*]Ensure that [font=Courier New]RowYourBoat.ini[/font] exists in [font=Courier New]Data/SyncMap[/font]
+[*]Ensure that [font=Courier New]RowYourBoat.json[/font] exists in [font=Courier New]Data/MagicLoader[/font]
+[*]Ensure that [font=Courier New]RowYourBoat.esp[/font] exists in [font=Courier New]Data/[/font]
+[*]Add [font=Courier New]RowYourBoat.esp[/font] to your [font=Courier New]plugins.txt[/font] (also in the Data folder)
+[*]Run MagicLoader 2
+[*]Start the game with MagicLoader 2 or OBSE
+[/list]
+
+[size=5]Usage[/size]
+
+You’ll find the new rowboat right behind the Imperial City Waterfront Shack for sale in the water with a for sale sign posted nearby.
+
+The boat can be purchased from Sergius Verus at The Three Brothers Trade Goods in the Imperial City Market District for 500 gold. He also sells all three upgrades to the rowboat (Storage Chest, Lamp, and Rope Ladder) for 100 gold each.
+
+Once the boat is purchased, activate the boat to learn the Row spell and open the boat menu.
+
+To move the boat you can either select “Auto-row Forward”/“Auto-row Backward” in the boat menu or cast the Row spell while standing on the boat. The Row spell costs 5 fatigue but 0 magicka. Cast it while sneaking to row backwards. Hold down the cast key to continuously move the boat.
+
+The boat will automatically turn towards the direction you are looking in first-person mode or the direction your character is facing in third-person mode. This can be enabled/disabled with the “Lock Heading”/”Unlock Heading” toggle in the boat menu.
+
+The boat will automatically detect it is about to collide with land or obstacles and stop the boat. The collision detection waits for 2 seconds at the start of rowing to allow you to clear the boat from any obstacles before starting detection again.
+
+At any time you can cast the Row spell to summon the boat to your location with two methods: “Summon Boat” which tries to obey terrain and chooses the best location in front of you to place the boat. “Place Boat Right Here” will do exactly that and place the boat right in front of you even if that is inside a hill or floating in-air. It may take a second or two for the boat to appear, especially if you are far away from the boat.
+
+When the boat is not moving you can select the “Drag Boat” option in the boat menu to drag the boat along with you over land or water. You are pulling all 200 pounds of the boat so be prepared to be encumbered or ready those feather effects. If you would like to stop dragging the boat you can either: activate the boat and select “Stop Dragging", cast the Row spell near the boat and select “Stop Dragging”, drop the Rowboat from your inventory. While dropping the boat from your inventory works, you should try to avoid doing it too much since it creates new references in the game and may lead to save game bloat.
+
+If purchased, the chest can be used to store loot as you travel by boat. It is marked non-respawning so should be safe to store items long-term.
+
+If purchased, the lamp can be turned on and off by either: interacting with the lamp, choosing the “Toggle Lamp” option in the boat menu, or casting a fire or frost spell on the lamp.
+
+If purchased, the rope ladder will deploy when the boat is moving in the water and you fall overboard. Interact with it to sit down on the seat on the boat. Start rowing again to hide the ladder.
+
+The seat on the boat which is included by default will only be operable when the boat is not moving.
+
+There’s an in-game manual for the boat. At the end there is an appendix with instructions on how to tweak the boat parameters and a list of all the editable parameters. I've copied that section below here for reference within this spoiler tag:
+
+[spoiler]
+Appendix: Advanced Enchantment Modifications[i]
+
+The following section is intended only for those versed in the highest arts of maritime enchantment. Improper modification may result in unstable or dangerous vessel behavior.
+[/i]
+For those brave souls who would tune their vessel's enchantments, speak the ancient console invocation (`) and recite:
+[code]ObvConsole set RYB.<ENCHANTMENT> to <VALUE>[/code]
+[b]Movement Enchantments:[/b]
+BoatMaxVelocity (6) - Maximum speed attainable
+BaseRowForce (0.05) - Force applied when rowing
+BaseTurnRate (0.4) - Base turning speed
+TurnDeadzone (10) - Degrees before turning begins
+VelocityDecayLnRetentionFactor (-0.01005) - Speed depletion rate
+TurnRateAcceleration (0.15) - Turn start speed
+TurnRateDeceleration (0.92) - Turn stop speed
+[b]
+Dragging Enchantments:[/b]
+DragRopeLength (250) - Distance before boat follows
+DragMaxVelocity (4.0) - Maximum dragging speed
+DragFriction (0.85) - Resistance when dragging
+DragZInterpolationRate (0.1) - Speed of height adjustment
+DragBaseTurnRate (0.1) - How quickly boat turns
+DragMaxTurnPerFrame (2.0) - Max speed of boat turns
+DragTurnDeadzone (5) - Degrees of diversion before boat turns
+DragLandPlayerZOffset (30) - Height of boat off ground
+DragTurnRateAcceleration (0.15) - Turn start speed
+DragTurnRateDeceleration (0.92) - Turn stop speed
+DragPathSlopeFactor (0.7) - Tilt angle sensitivity
+DragPathSlopeDeadzone (2) - Minimum slope of land to tilt
+DragMaxPitchAngle (45) - Maximum tilt angle on slopes
+DragPitchSmoothingFactor (0.15) - Smoothness of tilting
+DragPathMinDistance (50) - Distance to drag before adjusting tilt
+DragUphillZAdjustmentFactor (6) - Amount to lower boat dragging uphill
+DragDownhillZAdjustmentFactor (6) - Amount to raise boat dragging downhill
+
+[b]Wave Simulation Enchantments:[/b]
+RockingEnabled (1) - Enable water motion effects
+RockAmplitudeZ (0.8) - Vertical rocking magnitude
+RockAmplitudePitch (2.0) - Forward/back tilt magnitude
+RockAmplitudeRoll (3.0) - Side-to-side tilt magnitude
+RockFrequency (30.0) - Primary rocking speed
+RockFrequency2 (30.0) - Secondary rocking speed
+RockFrequency3 (30.0) - Tertiary rocking (roll) speed
+RockWeatherFactor (0.5) - Weather influence multiplier
+RockSpeedFactor (0.25) - Boat speed influence multiplier
+RockDistanceThreshold (3000) - Distance from boat rocking ceases
+RockSmoothingFactor (0.1) - Smoothness of rocking
+
+[b]Weight Distribution Enchantments:[/b]
+PlayerWeightEnabled (1) - Enable weight effects
+PlayerWeightPitchFactor (0.15) - Forward/back tilt from position
+PlayerWeightRollFactor (0.12) - Side tilt from position
+PlayerWeightSmoothingFactor (0.2) - How fast tilt changes
+PlayerWeightMaxDistanceForward (240) - Distance lengthwise effect applies
+PlayerWeightMaxDistanceSide (100) - Distance sideways effect applies
+PlayerWeightMaxDistanceVertical (60) - Distance upwards effect applies
+
+[b]Collision Detection Enchantments:[/b]
+CollisionDetectDelay (2) - Delay before checking obstacles
+CollisionDetectZThreshold (10) - Height threshold for collision
+ColliderOffset (300) - Distance forward from center for detection
+ColliderOffsetReverse (350) - Distance backward from center for detection
+ColliderMoveFreq (0.05) - How often to move collider
+OverboardDistance (300) - Distance before "overboard" triggers
+
+[b]Miscellaneous Enchantments:[/b]
+SummonDistance (350) - Distance boat appears when summoned
+LandZThreshold (10) - Height above water considered "on land"
+WaterLevelZ (0) - Base water level
+DeltaSmoothingFactor (0.1) - Sensitivity of frame rate compensation
+
+[i]May fair winds and following seas guide your journeys across Cyrodiil's waters![/i]
+[line][i]Published by the Imperial Maritime Guild [/i][i]Third Edition, 3E 433[/i]
+[/spoiler]
+
+
+[size=5]Known Issues / FAQ[/size]
+
+[list]
+[*][b]The collision detection sometimes triggers when you are in clear open water.[/b] Sometimes this can happen much more frequently in some problem locations (beneath some bridges) or at very low frame rates. There isn’t much I can do about this, so just try rowing again until you clear the area.
+[*][b]The collision detection sometimes fails to trigger when it should.[/b] Particularly when rowing into cliff faces or objects in the water. You’ll likely get pushed overboard if this happens which stops the boat. If the boat gets lost in terrain, you can use the Row spell to summon it back at your location.
+[*][b]There’s sometimes a weird splashing sound and visual effect around the boat when it is moving.[/b] That’s just the tiny invisible vampire that is preventing you from losing your boat in the terrain, don’t worry about it ﻿😉
+[*][b]The row spell as a “DO NOT USE - Darkness” effect in addition to the script effect and damage fatigue effect.[/b] This is purely there to remove the annoying spell cast sound and visual effect when you are continuously casting it. It doesn’t actually do anything in the game.
+[*][b]The boat is floating above/below the water in interiors.[/b] There’s currently no way to fix this since we can’t query a cell’s water level from scripts. Hopefully we’ll eventually have an OBSE64 function to do this.
+[*][b]Sometimes the boat doesn’t appear when summoned.[/b] I noticed there are a few problem locations where this can happen more frequently. If it does, try switching to summoning with the “Place Boat Right Here” option instead.
+[*][b]The “Get On Boat” menu option sometimes places you outside the boat.[/b] This seems to be a bug/quirk with the game engine where it just decides to place the player slightly off of the position requested. If this ever happens, use the “Sit Down” option or activate the rope ladder if you have purchased it which doesn’t have this problem.
+[*][b]The seat on the boat doesn’t work when the boat is moving.[/b] The seat is intentionally disabled while the boat is moving because the game engine doesn’t allow moving a player that is seated.
+[*][b]Followers fall off the boat.[/b] It seems like the game engine is better about keeping the player on the boat than other actors. I’m looking into better solutions for this.
+[/list]
+
+[size=5]Compatibility[/size]
+
+This mod should be fully compatible most mods. Let me know if you find a mod that isn’t compatible. In the future, this may need patches with any mods that modify:
+
+[list]
+[*]The area behind the IC Waterfront Shack where the rowboat is placed
+[*]Sergius Verus or The Three Brothers Trade Goods
+[*]Any model replacers for the rowboat, lower-class chest, lower-class stool, ship lamp, or rope ladder.
+[*]The Darkness Spell Effect that’s unused in vanilla oblivion
+[*]The VampireRace that’s unused in vanilla oblivion
+[/list]
+This mod was designed specifically with the [url=https://www.nexusmods.com/oblivionremastered/mods/2118]Lived In - Imperial Waterfront mod[/url] in mind, so it is compatible with that.
+
+
+[size=5]Recommended Complementary Mods[/size]
+
+[list]
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/3978]Simply swim up[/url]﻿: makes swimming around the boat easier
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/2118]Lived In - Imperial Waterfront[/url]﻿: fully-compatible, adds a dock for the rowboat
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/1790]Eli's Waterfront Shack Overhaul[/url]﻿: fully-compatible, spruces up the exterior of the shack
+[/list]
+
+[size=5]Credits[/size]
+
+[list]
+[*]Jason1, Grumblepunk, and Dark Monk for the original inspiration and basis for the scripts in this mod.
+[*]Thank you to all the editors of [url=https://cs.uesp.net/wiki/Main_Page]The Elder Scrolls Construction Set Wiki[/url]﻿. All the knowledge there was invaluable to this project.
+[*]Thanks to everyone that made guides or answered my questions in the [url=https://discord.gg/5tRCpemR]ORMC discord[/url]﻿.
+[*]Thanks to everyone on the old Bethesda forums and [url=https://tesalliance.org/forums/index.php]TES Alliance[/url]﻿ for originally helping me learn how to mod Oblivion and putting up with me when I was an annoying teenager all those years ago.
+[/list]
+
+
