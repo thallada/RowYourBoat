@@ -107,6 +107,10 @@ For those brave souls who would tune their vessel's enchantments, speak the anci
 
 [code]ObvConsole set RYB.<ENCHANTMENT> to <VALUE>[/code]
 
+To understand the current state of your vessel's enchantments, scry all current enchantment values by reciting:
+
+[code]sqv RYB[/code]
+
 [b]Movement Enchantments:[/b]
 BoatMaxVelocity (6) - Maximum speed attainable
 BaseRowForce (0.05) - Force applied when rowing
@@ -216,6 +220,7 @@ This mod was designed specifically with the [url=https://www.nexusmods.com/obliv
 [size=5]Source[/size]
 
 I keep all of the scripts and files for this mod on [url=https://github.com/thallada/RowYourBoat]github[/url] (and [url=https://git.hallada.net/thallada/RowYourBoat]here[/url]). Everything is MIT licensed if anyone would like to reuse or build off this mod.
+
 
 [size=5]Credits[/size]
 

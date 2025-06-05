@@ -120,6 +120,10 @@ Should you encounter any behavior not described in this manual, remember that yo
 <br>
 ObvConsole set RYB.ENCHANTMENT to VALUE<br>
 <br>
+To understand the current state of your vessel's enchantments, scry all current enchantment values by reciting:<br>
+<br>
+sqv RYB<br>
+<br>
 Movement Enchantments:<br>
 BoatMaxVelocity (6) - Maximum speed attainable<br>
 BaseRowForce (0.05) - Force applied when rowing<br>
