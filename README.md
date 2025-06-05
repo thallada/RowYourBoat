@@ -4,7 +4,6 @@ Source code and files for the [Row Your Boat Oblivion Remastered
 mod](https://www.nexusmods.com/oblivionremastered/mods/4273).
 
 [YouTube video](https://youtu.be/SE55cqIZNp4)
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SE55cqIZNp4?si=VI3vs1kPtX6liGD_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ## Scripts
 
