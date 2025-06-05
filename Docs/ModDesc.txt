@@ -46,12 +46,11 @@ Features[/size]
 [size=4]Requirements[/size]
 
 [list]
-[*][url=https://www.nexusmods.com/oblivionremastered/mods/32]UE4SS[/url]﻿: hard requirement. Requirement of UE4SS TESSyncMapInjector.
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/32]UE4SS[/url]﻿: hard requirement. Requirement of UE4SS TesSyncMapInjector.
 [*][url=https://www.nexusmods.com/oblivionremastered/mods/1272]UE4SS TesSyncMapInjector[/url]: hard requirement. The rowboat won’t show up in-game without this.
 [*][url=https://www.nexusmods.com/oblivionremastered/mods/1966]MagicLoader 2[/url]﻿: soft requirement. Fixes the map marker and row spell effect showing up as `<MISSING STRING TABLE ENTRY>`
 [*][url=https://www.nexusmods.com/oblivionremastered/mods/282]OBSE64[/url]﻿: soft requirement. Needed for [font=Courier New][NL][/font] tag remover. I may use OBSE64 functions in the future as they become available.
 [*][url=https://www.nexusmods.com/oblivionremastered/mods/473]NL-Tag Remover[/url]﻿: soft requirement. Gets rid of ugly [font=Courier New][NL][/font] prefixes on all the text added by this mod.
-[*][url=https://www.nexusmods.com/oblivionremastered/mods/145]Baka Achievement Enabler[/url]﻿: optionally recommended. If you plan on tweaking the boat’s behavior it requires use of the console which would disable achievements without this mod.
 [/list]
 Please double check that you have set up TesSyncMapInjector correctly before posting a bug.
 
@@ -105,7 +104,9 @@ Appendix: Advanced Enchantment Modifications[i]
 The following section is intended only for those versed in the highest arts of maritime enchantment. Improper modification may result in unstable or dangerous vessel behavior.
 [/i]
 For those brave souls who would tune their vessel's enchantments, speak the ancient console invocation (`) and recite:
+
 [code]ObvConsole set RYB.<ENCHANTMENT> to <VALUE>[/code]
+
 [b]Movement Enchantments:[/b]
 BoatMaxVelocity (6) - Maximum speed attainable
 BaseRowForce (0.05) - Force applied when rowing
@@ -209,6 +210,7 @@ This mod was designed specifically with the [url=https://www.nexusmods.com/obliv
 [*][url=https://www.nexusmods.com/oblivionremastered/mods/3978]Simply swim up[/url]﻿: makes swimming around the boat easier
 [*][url=https://www.nexusmods.com/oblivionremastered/mods/2118]Lived In - Imperial Waterfront[/url]﻿: fully-compatible, adds a dock for the rowboat
 [*][url=https://www.nexusmods.com/oblivionremastered/mods/1790]Eli's Waterfront Shack Overhaul[/url]﻿: fully-compatible, spruces up the exterior of the shack
+[*][url=https://www.nexusmods.com/oblivionremastered/mods/145]Baka Achievement Enabler[/url]﻿: if you plan on tweaking the boat’s behavior it requires use of the console which would disable achievements without this mod
 [/list]
 
 [size=5]Source[/size]
@@ -218,10 +220,8 @@ I keep all of the scripts and files for this mod on [url=https://github.com/thal
 [size=5]Credits[/size]
 
 [list]
-[*]Jason1, Grumblepunk, and Dark Monk for the original inspiration and basis for the scripts in this mod.
+[*]Jason1, [url=https://next.nexusmods.com/profile/Grumblepunk?gameId=101]Grumblepunk[/url], and [url=https://next.nexusmods.com/profile/darkmonkee?gameId=101]Dark Monk[/url] for the original inspiration and basis for the scripts in this mod.
 [*]Thank you to all the editors of [url=https://cs.uesp.net/wiki/Main_Page]The Elder Scrolls Construction Set Wiki[/url]﻿. All the knowledge there was invaluable to this project.
 [*]Thanks to everyone that made guides or answered my questions in the [url=https://discord.gg/5tRCpemR]ORMC discord[/url]﻿.
 [*]Thanks to everyone on the old Bethesda forums and [url=https://tesalliance.org/forums/index.php]TES Alliance[/url]﻿ for originally helping me learn how to mod Oblivion and putting up with me when I was an annoying teenager all those years ago.
 [/list]
-
-
