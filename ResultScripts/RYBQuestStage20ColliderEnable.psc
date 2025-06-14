@@ -7,7 +7,7 @@ RYBColliderRef.AddSpell MG14JskarInvis
 RYBColliderRef.SetActorValue Aggression 0
 RYBColliderRef.SetActorValue Blindness 100
 RYBColliderRef.ModActorValue Sneak 0
-RYBColliderRef.SetActorsAI 0
+; RYBColliderRef.SetActorsAI 0 ; causes crash in 1.511.102.0
 RYBColliderRef.MoveTo Player
 RYBColliderRef.SetPos x, RYB.ColliderX
 RYBColliderRef.SetPos y, RYB.ColliderY
