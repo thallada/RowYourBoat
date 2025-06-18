@@ -1,6 +1,6 @@
 ; RYB Stage 1 Initialize Constants
 
-set RYB.ModVersion to 0.1
+set RYB.ModVersion to 0.2
 set RYB.pi to 3.1415927
 set RYB.halfPi to RYB.pi / 2
 set RYB.radToDeg to 180.0/RYB.pi ; always multiply to convert

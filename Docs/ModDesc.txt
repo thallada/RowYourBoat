@@ -167,6 +167,7 @@ CollisionDetectZThreshold (10) - Height threshold for collision
 ColliderOffset (300) - Distance forward from center for detection
 ColliderOffsetReverse (350) - Distance backward from center for detection
 ColliderMoveFreq (0.05) - How often to move collider
+CollisionPosThreshold (1.0) - Ignore detection if this far off position
 OverboardDistance (300) - Distance before "overboard" triggers
 
 [b]Miscellaneous Enchantments:[/b]
@@ -183,10 +184,10 @@ DeltaSmoothingFactor (0.1) - Sensitivity of frame rate compensation
 [size=5]Known Issues / FAQ[/size]
 
 [list]
-[*][b]The collision detection sometimes triggers when you are in clear open water.[/b] Sometimes this can happen much more frequently in some problem locations (beneath some bridges) or at very low frame rates. There isn’t much I can do about this, so just try rowing again until you clear the area.
+[*][b]The collision detection sometimes triggers when you are in clear open water.[/b] Sometimes this can happen much more frequently in some problem locations (beneath some bridges) or at very low frame rates. This should be better in version 0.2.0, but if it happens just try rowing again until you clear the area.
 [*][b]The collision detection sometimes fails to trigger when it should.[/b] Particularly when rowing into cliff faces or objects in the water. You’ll likely get pushed overboard if this happens which stops the boat. If the boat gets lost in terrain, you can use the Row spell to summon it back at your location.
 [*][b]There’s sometimes a weird splashing sound and visual effect around the boat when it is moving.[/b] That’s just the tiny invisible vampire that is preventing you from losing your boat in the terrain, don’t worry about it ﻿😉
-[*][b]The row spell as a “DO NOT USE - Darkness” effect in addition to the script effect and damage fatigue effect.[/b] This is purely there to remove the annoying spell cast sound and visual effect when you are continuously casting it. It doesn’t actually do anything in the game.
+[*][b]The row spell as a lock icon and a “Open Easy Lock” effect in addition to the script effect and damage fatigue effect.[/b] This is purely there to remove the annoying spell cast sound and visual effect when you are continuously casting it. It doesn’t actually do anything in the game.
 [*][b]The boat is floating above/below the water in interiors.[/b] There’s currently no way to fix this since we can’t query a cell’s water level from scripts. Hopefully we’ll eventually have an OBSE64 function to do this.
 [*][b]Sometimes the boat doesn’t appear when summoned.[/b] I noticed there are a few problem locations where this can happen more frequently. If it does, try switching to summoning with the “Place Boat Right Here” option instead.
 [*][b]The “Get On Boat” menu option sometimes places you outside the boat.[/b] This seems to be a bug/quirk with the game engine where it just decides to place the player slightly off of the position requested. If this ever happens, use the “Sit Down” option or activate the rope ladder if you have purchased it which doesn’t have this problem.
@@ -202,7 +203,7 @@ This mod should be fully compatible most mods. Let me know if you find a mod tha
 [*]The area behind the IC Waterfront Shack where the rowboat is placed
 [*]Sergius Verus or The Three Brothers Trade Goods
 [*]Any model replacers for the rowboat, lower-class chest, lower-class stool, ship lamp, or rope ladder.
-[*]The Darkness Spell Effect that’s unused in vanilla oblivion
+[*]The Lock Spell Effect that’s unused in vanilla oblivion
 [*]The VampireRace that’s unused in vanilla oblivion
 [/list]
 This mod was designed specifically with the [url=https://www.nexusmods.com/oblivionremastered/mods/2118]Lived In - Imperial Waterfront mod[/url] in mind, so it is compatible with that.

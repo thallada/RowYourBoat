@@ -17,6 +17,12 @@ to be kept quite short since result scripts have a small max limit.
 I use the `.psc` extension for better code highlighting, but these technically aren't Papyrus files since these are
 OBScript files.
 
+## UE4SSScripts
+
+This folder contains all of the [UE4SS](https://docs.ue4ss.com/index.html) Lua
+scripts to be installed in
+`OblivionRemastered/Binaries/Win64/ue4ss/Mods/RowYourBoat/scripts/`.
+
 ## ESP
 
 I'm checking in any changes I make to the `.esp` plugin here, but it's a binary format not easily readable on git

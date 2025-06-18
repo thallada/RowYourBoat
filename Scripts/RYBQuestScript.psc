@@ -309,6 +309,11 @@ begin GameMode
         SetStage RYB 7 ; init player weight
     endif
 
+    if (ModVersion < 0.2)
+        set ModVersion to 0.2
+        set ColliderPosThreshold to 1.0
+    endif
+
     if (Resetting == -1)
         SetStage RYB 51 ; Re-enable boat and attachment refs
         set Resetting to 1
