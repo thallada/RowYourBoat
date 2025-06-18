@@ -14,7 +14,10 @@ short Initializing
 short BoatMoving ; 0 = not moving, 1 = about to move this tick, 2 = in motion
 short Rowing ; 0 = not rowing (timed), 1 = rowing forward (timed), 2 = rowing backward (timed)
 short AutoRowing ; 0 = not auto rowing, 1 = auto rowing forward, 2 = auto rowing backward
-short Resetting ; 1 = run positioning code once relative to player, 2 = run positioning code once relative to boat
+; 1 = run positioning code once relative to player
+; 2 = run positioning code once relative to boat
+; -1 = re-enable boat and attachments, then run positioning code once relative to player
+short Resetting
 short LockHeading ; 0 = free to turn, 1 = locked to current boat heading
 short LadderDeployed ; 0 = disabled, 1 = enabled
 short LampOn
@@ -28,6 +31,7 @@ short BoatPurchased
 short ChestPurchased
 short LampPurchased
 short LadderPurchased
+short PlayerNearBoat ; 0 = not near boat, 1 = near boat (within RockDistanceThreshold)
 
 ; Triggers
 ; Sort of like functions that any script can call by setting these to 1 which this script will handle and set back to 0
@@ -276,7 +280,9 @@ float LadderZOffset ; pos units from BoatZ upwards to place the ladder (default:
 
 ref Collider
 float ColliderX
+float ColliderActualX
 float ColliderY
+float ColliderActualY
 float ColliderZ
 float ColliderOffset ; pos units from boat center towards boat direction to place the collider
 float ColliderOffsetReverse ; pos units from boat center towards the back of the boat to place the collider
@@ -285,6 +291,8 @@ float ColliderMoveTimer ; current time left to wait before moving the collider a
 float CollisionDetectDelay ; how long to wait in seconds at boat startup before checking for collision (default: 2)
 float CollisionDetectTimer ; current time left to give for moving the boat away at startup before detecting collision
 short CollisionDetectZThreshold ; Z position that the collider must be above to be considered colliding with something
+; how close (in units) the collider must be to the expected position to trigger a collision (default: 1.0)
+float ColliderPosThreshold
 
 begin GameMode
     if (Initializing == 0)
@@ -301,6 +309,11 @@ begin GameMode
         SetStage RYB 7 ; init player weight
     endif
 
+    if (Resetting == -1)
+        SetStage RYB 51 ; Re-enable boat and attachment refs
+        set Resetting to 1
+    endif
+
     set PlayerDistance to BoatRef.GetDistance Player
     if (PlayerDistance < RockDistanceThreshold)
         if (RockingEnabled == 1)
@@ -308,8 +321,17 @@ begin GameMode
         else
             set fQuestDelayTime to MediumUpdateRate ; medium processing rate when nearby but rocking is disabled
         endif
+        if (PlayerNearBoat == 0)
+            ; Fix bug with boat disappearing after returning to the boat's cell by disabling all refs and re-enable in
+            ; the next frame
+            SetStage RYB 50 ; Disable boat and attachment refs
+            set Resetting to -1 ; re-enable boat and attachment refs next frame
+        endif
+        set PlayerNearBoat to 1
     else
         set fQuestDelayTime to LowUpdateRate ; low processing rate when far away
+        set PlayerNearBoat to 0
+        ; SetStage RYB 50 ; Disable boat and attachment refs when away
     endif
 
     if (TriggerAutoRow == 1)
@@ -508,13 +530,7 @@ begin GameMode
             set BoatY to PlayerY + (PlayerCos * SummonDistance)
             set BoatZ to PlayerZ
             ; Disable all the refs first since they need to be disabled and enabled one frame later to appear correctly
-            BoatRef.Disable
-            BoatMarker.Disable
-            Seat.Disable
-            Chest.Disable
-            LampLit.Disable
-            LampUnlit.Disable
-            Ladder.Disable
+            SetStage RYB 50 ; Disable boat and attachment refs
             BoatRef.MoveTo Player
             BoatRef.SetPos x, BoatX
             BoatRef.SetPos y, BoatY
@@ -535,13 +551,7 @@ begin GameMode
         if (BoatZ < (WaterLevelZ + 1))
             set BoatZ to WaterLevelZ + 1
         endif
-        BoatRef.Disable
-        BoatMarker.Disable
-        Seat.Disable
-        Chest.Disable
-        LampLit.Disable
-        LampUnlit.Disable
-        Ladder.Disable
+        SetStage RYB 50 ; Disable boat and attachment refs
         BoatRef.MoveTo Player
         BoatRef.SetPos x, BoatX
         BoatRef.SetPos y, BoatY
@@ -554,32 +564,18 @@ begin GameMode
         ; set SummonTimer to SummonTimerDelay ; this delay maybe not necessary
     elseif (Summoning == 2)
         set Summoning to 0
-        BoatRef.Enable
-        BoatMarker.Enable
-        Seat.Enable
-        if (ChestPurchased == 1)
-            Chest.Enable
-        endif
-        if (LampPurchased == 1)
-            if (LampOn == 1)
-                LampLit.Enable
-            endif
-            LampUnlit.Enable
-        endif
-        if (LadderPurchased == 1 && LadderDeployed == 1)
-            Ladder.Enable
-        endif
+        SetStage RYB 51 ; Re-enable boat and attachment refs
         if (RockingEnabled == 0)
             set fQuestDelayTime to MediumUpdateRate
         endif
         set Resetting to 1
     endif
 
-    if (LampOn == 1 && LampLit.GetDisabled == 1)
+    if (LampOn == 1 && LampLit.GetDisabled == 1 && Resetting != -1)
         set Resetting to 1
         LampLit.Enable
         LampUnlit.PlaySound3D SPLFireballFail
-    elseif (LampOn == 0 && LampLit.GetDisabled == 0)
+    elseif (LampOn == 0 && LampLit.GetDisabled == 0 && Resetting != -1)
         set Resetting to 1
         LampLit.Disable
         LampUnlit.PlaySound3D ITMTorchHeldExt
@@ -663,10 +659,14 @@ begin GameMode
     if (BoatMoving == 2 && CollisionDetectTimer > 0)
         set CollisionDetectTimer to CollisionDetectTimer - SecondsPassed
     elseif (BoatMoving == 2 && CollisionDetectTimer <= 0 && Collider.GetInSameCell Player && Collider.GetPos z > CollisionDetectZThreshold)
-        if (RockingEnabled == 0)
-            set fQuestDelayTime to MediumUpdateRate
+        set ColliderActualX to Collider.GetPos x
+        set ColliderActualY to Collider.GetPos y
+        if (ColliderActualX > ColliderX - ColliderPosThreshold && ColliderActualX < ColliderX + ColliderPosThreshold && ColliderActualY > ColliderY - ColliderPosThreshold && ColliderActualY < ColliderY + ColliderPosThreshold)
+            if (RockingEnabled == 0)
+                set fQuestDelayTime to MediumUpdateRate
+            endif
+            SetStage RYB 21 ; Collision procedure
         endif
-        SetStage RYB 21 ; Collision procedure
     elseif (BoatMoving == 2 && CollisionDetectTimer <= 0 && Collider.GetDead == 1)
         ; Moving the collider every frame seems to cause the collider to spontaneously die when near land. However, this
         ; also seems to have many false positives where it dies in open water. Instead of every frame, the script uses
@@ -1119,7 +1119,7 @@ begin GameMode
     endif
 
     ; Boat rocking animation
-    if (RockingEnabled == 1 && Dragging == 0 && Summoning == 0 && Grounded == 0 && OnLand == 0 && PlayerDistance < RockDistanceThreshold)
+    if (RockingEnabled == 1 && Dragging == 0 && Summoning == 0 && Grounded == 0 && OnLand == 0 && PlayerNearBoat == 1)
         ; Update random variation
         if (RockRandomTimer <= 0)
             set RockRandomTimer to RockRandomInterval
@@ -1206,12 +1206,12 @@ begin GameMode
         endif
     endif
 
-    if (BoatMoving >= 1 || Dragging >= 1 || Resetting >= 1 || (PlayerDistance < RockDistanceThreshold && (RockZOffset != 0 || RockPitchOffset != 0 || RockRollOffset != 0)))
+    if (BoatMoving >= 1 || Dragging >= 1 || Resetting >= 1 || (PlayerNearBoat == 1 && (RockZOffset != 0 || RockPitchOffset != 0 || RockRollOffset != 0)))
         set ang to BoatAngle
         SetStage RYB 12 ; Calculate sin, cos, & tan for boat angle
     endif
 
-    if (BoatMoving >= 1 || Dragging >= 1 || Resetting >= 1 || (PlayerDistance < RockDistanceThreshold && (RockZOffset != 0 || RockPitchOffset != 0 || RockRollOffset != 0)))
+    if (BoatMoving >= 1 || Dragging >= 1 || Resetting >= 1 || (PlayerNearBoat == 1 && (RockZOffset != 0 || RockPitchOffset != 0 || RockRollOffset != 0)))
         ; Transform world pitch/roll to boat's local pitch/roll
         set BoatPitchAngle to (RockPitchOffset + DragPitchAngle) * cos + RockRollOffset * sin
         set BoatRollAngle to -(RockPitchOffset + DragPitchAngle) * sin + RockRollOffset * cos
@@ -1258,7 +1258,7 @@ begin GameMode
                 Set ColliderMoveTimer to ColliderMoveFreq
             endif
         endif
-    elseif (BoatMoving == 0 && Dragging == 0 && Summoning == 0 && (PlayerDistance < RockDistanceThreshold && (RockZOffset != 0 || RockPitchOffset != 0 || RockRollOffset != 0)))
+    elseif (BoatMoving == 0 && Dragging == 0 && Summoning == 0 && (PlayerNearBoat == 1 && (RockZOffset != 0 || RockPitchOffset != 0 || RockRollOffset != 0)))
         ; Apply rocking to stationary boat.
         set BoatZWithRock to BoatZ + RockZOffset
         
@@ -1271,7 +1271,7 @@ begin GameMode
     endif
 
     ; Update attachments (seat, chest, lamp, ladder) positions and angles both while moving and stationary (if rocking)
-    if (BoatMoving >= 1 || Dragging >= 1 || Resetting >= 1 || (BoatMoving == 0 && Dragging == 0 && (PlayerDistance < RockDistanceThreshold && (RockZOffset != 0 || RockPitchOffset != 0 || RockRollOffset != 0))))
+    if (BoatMoving >= 1 || Dragging >= 1 || Resetting >= 1 || (BoatMoving == 0 && Dragging == 0 && (PlayerNearBoat == 1 && (RockZOffset != 0 || RockPitchOffset != 0 || RockRollOffset != 0))))
         SetStage RYB 30 ; Calculate seat position and angle
         SetStage RYB 40 ; Update seat position and angle
 

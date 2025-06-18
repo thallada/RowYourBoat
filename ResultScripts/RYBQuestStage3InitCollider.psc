@@ -5,6 +5,7 @@ set RYB.ColliderOffset to 300
 set RYB.ColliderOffsetReverse to 350
 set RYB.ColliderMoveFreq to 0.05
 set RYB.ColliderZ to 1
+set RYB.ColliderPosThreshold to 1.0
 RYBColliderRef.SetActorAlpha 0.0
 RYBColliderRef.SetActorRefraction 10.0
 RYBColliderRef.AddSpell MG14JskarInvis
