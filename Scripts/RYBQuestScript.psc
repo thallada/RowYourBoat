@@ -66,7 +66,7 @@ float FrameTurnRate
 float CurrentTurnRate ; the actual turn rate being applied this frame (decayed or accelerated version of FrameTurnRate)
 float TurnRateAcceleration ; how quickly turn rate ramps up (default: 0.15)
 float TurnRateDeceleration ; how quickly turn rate decays when not turning (default: 0.92)
-float LandZThreshold ; Z position that the boat must be above to be considered on land (default: 10)
+float LandZThreshold ; Z position that the boat must be above to be considered on land (default: 40)
 float WaterLevelZ ; Z position of the water level (default: 0)
 
 float RowTimer ; current time left before stopping rowing
@@ -312,6 +312,7 @@ begin GameMode
     if (ModVersion < 0.2)
         set ModVersion to 0.2
         set ColliderPosThreshold to 1.0
+        set LandZThreshold to 40.0
     endif
 
     if (Resetting == -1)

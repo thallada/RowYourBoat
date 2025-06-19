@@ -16,7 +16,7 @@ set RYB.RowSpellDuration to 1.5
 set RYB.OverboardDistance to 300
 set RYB.TurnRateAcceleration to 0.15
 set RYB.TurnRateDeceleration to 0.92
-set RYB.LandZThreshold to 10
+set RYB.LandZThreshold to 40
 set RYB.WaterLevelZ to 0
 set RYB.HighUpdateRate to 0.0166
 set RYB.MediumUpdateRate to 0.1

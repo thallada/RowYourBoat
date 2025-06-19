@@ -185,7 +185,7 @@ OverboardDistance (300) - Distance before "overboard" triggers<br>
 <br>
 Miscellaneous Enchantments:<br>
 SummonDistance (350) - Distance boat appears when summoned<br>
-LandZThreshold (10) - Height above water considered "on land"<br>
+LandZThreshold (40) - Height above water considered "on land"<br>
 WaterLevelZ (0) - Base water level<br>
 DeltaSmoothingFactor (0.1) - Sensitivity of frame rate compensation<br>
 <br>
