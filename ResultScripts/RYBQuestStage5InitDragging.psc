@@ -23,4 +23,4 @@ set RYB.DragTargetPitchMovingSmoothingFactor to 0.03
 set RYB.DragTargetPitchStoppedSmoothingFactor to 0.02
 set RYB.DragUphillZAdjustmentFactor to 6
 set RYB.DragDownhillZAdjustmentFactor to 4.5
-set RYB.DragEncumberanceEnabled to 1
+set RYB.DragEncumbranceEnabled to 1

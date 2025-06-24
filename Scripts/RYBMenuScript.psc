@@ -93,7 +93,7 @@ begin GameMode
         elseif (Choice == 6)
             set ChoosingInit to 0
             set ChoosingSettings to 1
-            MessageBox "Settings", "Toggle Drag Encumberance", "Toggle Rocking", "Toggle Player Weight", "Cancel"
+            MessageBox "Settings", "Toggle Drag Encumbrance", "Toggle Rocking", "Toggle Player Weight", "Cancel"
             set Choice to GetButtonPressed
         elseif (Choice == 7)
             set ChoosingInit to 0
@@ -185,7 +185,7 @@ begin GameMode
         elseif (Choice == 4)
             set ChoosingOnLand to 0
             set ChoosingSettings to 1
-            MessageBox "Settings", "Toggle Drag Encumberance", "Toggle Rocking", "Toggle Player Weight", "Cancel"
+            MessageBox "Settings", "Toggle Drag Encumbrance", "Toggle Rocking", "Toggle Player Weight", "Cancel"
             set Choice to GetButtonPressed
         elseif (Choice == 5)
             set ChoosingOnLand to 0
@@ -216,12 +216,12 @@ begin GameMode
         set Choice to GetButtonPressed
         if (Choice == 0)
             set ChoosingSettings to 0
-            if (RYB.DragEncumberanceEnabled == 0)
-                set RYB.DragEncumberanceEnabled to 1
-                Message "Drag encumberance enabled. You will be encumbered by the weight of the boat when dragging it."
+            if (RYB.DragEncumbranceEnabled == 0)
+                set RYB.DragEncumbranceEnabled to 1
+                Message "Drag encumbrance enabled. You will be encumbered by the weight of the boat when dragging it."
             else
-                set RYB.DragEncumberanceEnabled to 0
-                Message "Drag encumberance disabled. You will not be encumbered by the weight of the boat when dragging it."
+                set RYB.DragEncumbranceEnabled to 0
+                Message "Drag encumbrance disabled. You will not be encumbered by the weight of the boat when dragging it."
             endif
         elseif (Choice == 1)
             set ChoosingSettings to 0
