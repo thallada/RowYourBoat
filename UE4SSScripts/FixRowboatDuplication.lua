@@ -270,7 +270,7 @@ NotifyOnNewObject("/Script/Engine.Actor", function(object)
     local className = string.match(objectName, "^([^%s]+)")
     local objectType = objectClassToTypes[className]
     if objectType then
-        log(string.upper(objectType) .. "Detected spawned object: " .. objectName)
+        log(string.upper(objectType) .. " Detected spawned object: " .. objectName)
         detectAndDeleteDuplicateObject(object, objectType)
     end
 end)

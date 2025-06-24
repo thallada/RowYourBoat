@@ -15,6 +15,8 @@ This project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.htm
   - (this is needed so the spell does not make a noise or visual effect when cast)
 - Reduced the amount of false-positives with collision detection so the boat shouldn't get grounded in water as often
 - Increased height boat needs to be to be considered on land so it can be dragged in the water while water-walking
+- Added a new setting option: "Toggle Drag Encumberance"
+  - Enables/disables adding the Rowboat to the player's inventory (200 lb) when initiating dragging
 
 ## 0.1.1
 

@@ -129,6 +129,7 @@ float DragTargetPitchMovingSmoothingFactor ; Additional smoothing factor on pitc
 float DragTargetPitchStoppedSmoothingFactor ; Additional smoothing factor on pitch applied while stopped (default: 0.02)
 float DragUphillZAdjustmentFactor ; How much to adjust Z based on angle when going uphill (default: 6.0)
 float DragDownhillZAdjustmentFactor ; How much to adjust Z based on angle when going downhill (default: 4.5)
+short DragEncumberanceEnabled ; 0 = disabled, 1 = enabled (default: 1)
 ; Boat drag angle calculation variables
 float dX
 float dY
@@ -313,6 +314,7 @@ begin GameMode
         set ModVersion to 0.2
         set ColliderPosThreshold to 1.0
         set LandZThreshold to 40.0
+        set DragEncumberanceEnabled to 1
     endif
 
     if (Resetting == -1)
@@ -437,7 +439,9 @@ begin GameMode
         if (Dragging == 0)
             set Dragging to 1
             set DragTargetPitchAngle to 0 ; smooth reset to 0 pitch
-            Player.AddItem RYBBoatToken 1
+            if (DragEncumberanceEnabled == 1)
+                Player.AddItem RYBBoatToken 1
+            endif
             set fQuestDelayTime to HighUpdateRate ; High update rate while dragging
             Seat.SetDestroyed 1
             BoatMarker.Disable

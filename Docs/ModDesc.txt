@@ -167,7 +167,7 @@ CollisionDetectZThreshold (10) - Height threshold for collision
 ColliderOffset (300) - Distance forward from center for detection
 ColliderOffsetReverse (350) - Distance backward from center for detection
 ColliderMoveFreq (0.05) - How often to move collider
-CollisionPosThreshold (1.0) - Ignore detection if this far off position
+ColliderPosThreshold (1.0) - Ignore detection if this far off position
 OverboardDistance (300) - Distance before "overboard" triggers
 
 [b]Miscellaneous Enchantments:[/b]

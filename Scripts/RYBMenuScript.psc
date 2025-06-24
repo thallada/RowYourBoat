@@ -93,7 +93,7 @@ begin GameMode
         elseif (Choice == 6)
             set ChoosingInit to 0
             set ChoosingSettings to 1
-            MessageBox "Settings", "Toggle Rocking", "Toggle Player Weight", "Cancel"
+            MessageBox "Settings", "Toggle Drag Encumberance", "Toggle Rocking", "Toggle Player Weight", "Cancel"
             set Choice to GetButtonPressed
         elseif (Choice == 7)
             set ChoosingInit to 0
@@ -185,7 +185,7 @@ begin GameMode
         elseif (Choice == 4)
             set ChoosingOnLand to 0
             set ChoosingSettings to 1
-            MessageBox "Settings", "Toggle Rocking", "Toggle Player Weight", "Cancel"
+            MessageBox "Settings", "Toggle Drag Encumberance", "Toggle Rocking", "Toggle Player Weight", "Cancel"
             set Choice to GetButtonPressed
         elseif (Choice == 5)
             set ChoosingOnLand to 0
@@ -216,19 +216,32 @@ begin GameMode
         set Choice to GetButtonPressed
         if (Choice == 0)
             set ChoosingSettings to 0
-            if (RYB.RockingEnabled == 0)
-                set RYB.RockingEnabled to 1
+            if (RYB.DragEncumberanceEnabled == 0)
+                set RYB.DragEncumberanceEnabled to 1
+                Message "Drag encumberance enabled. You will be encumbered by the weight of the boat when dragging it."
             else
-                set RYB.RockingEnabled to 0
+                set RYB.DragEncumberanceEnabled to 0
+                Message "Drag encumberance disabled. You will not be encumbered by the weight of the boat when dragging it."
             endif
         elseif (Choice == 1)
             set ChoosingSettings to 0
-            if (RYB.PlayerWeightEnabled == 0)
-                set RYB.PlayerWeightEnabled to 1
+            if (RYB.RockingEnabled == 0)
+                set RYB.RockingEnabled to 1
+                Message "Rocking enabled. The boat will experience wave rocking motion when nearby and not grounded."
             else
-                set RYB.PlayerWeightEnabled to 0
+                set RYB.RockingEnabled to 0
+                Message "Rocking disabled. The boat will not experience wave rocking motion."
             endif
         elseif (Choice == 2)
+            set ChoosingSettings to 0
+            if (RYB.PlayerWeightEnabled == 0)
+                set RYB.PlayerWeightEnabled to 1
+                Message "Player weight enabled. The boat rocking will react to the player's position on the boat."
+            else
+                set RYB.PlayerWeightEnabled to 0
+                Message "Player weight disabled. The boat rocking will not react to the player's position."
+            endif
+        elseif (Choice == 3)
             set ChoosingSettings to 0
         endif
     endif
