@@ -266,8 +266,34 @@ local function detectAndDeleteDuplicateObject(object, objectType)
 end
 
 NotifyOnNewObject("/Script/Engine.Actor", function(object)
-    local objectName = object:GetFullName()
+    if not object then
+        return
+    end
+    local objectName
+    local success = pcall(function()
+        -- Check if object has IsValid method
+        if object.IsValid and not object:IsValid() then
+            return
+        end
+        
+        -- Try to get the name
+        if type(object.GetFullName) == "function" then
+            objectName = object:GetFullName()
+        else
+            -- Fallback to string representation
+            objectName = tostring(object)
+        end
+    end)
+    
+    if not success or type(objectName) ~= "string" then
+        return
+    end
+
     local className = string.match(objectName, "^([^%s]+)")
+    if not className then
+        return
+    end
+
     local objectType = objectClassToTypes[className]
     if objectType then
         log(string.upper(objectType) .. " Detected spawned object: " .. objectName)
