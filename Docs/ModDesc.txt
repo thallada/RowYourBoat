@@ -61,10 +61,12 @@ Easiest method should be installing using a mod manager like Vortex which should
 If you are installing manually:
 
 [list]
-[*]Extract the contents of the ZIP file to [font=Courier New]<game folder>/OblivionRemastered/Content/Dev/ObvData/Data/[/font]
-[*]Ensure that [font=Courier New]RowYourBoat.ini[/font] exists in [font=Courier New]Data/SyncMap[/font]
-[*]Ensure that [font=Courier New]RowYourBoat.json[/font] exists in [font=Courier New]Data/MagicLoader[/font]
-[*]Ensure that [font=Courier New]RowYourBoat.esp[/font] exists in [font=Courier New]Data/[/font]
+[*]Extract the contents of the ZIP file to your game folder that contains the [font=Courier New]OblivionRemastered[/font] folder (e.g. [font=Courier New]C:\Program Files\Steam\SteamApps\common\Oblivion Remastered[/font])
+[*]Ensure that [font=Courier New]RowYourBoat.ini[/font] exists in [font=Courier New]Content\Dev\ObvData\Data\SyncMap[/font]
+[*]Ensure that [font=Courier New]RowYourBoat.json[/font] exists in [font=Courier New]Content\Dev\ObvData\Data\MagicLoader[/font]
+[*]Ensure that [font=Courier New]RowYourBoat.esp[/font] exists in [font=Courier New]Content\Dev\ObvData\Data\[/font]
+[*]Ensure that [font=Courier New]RowYourBoat[/font] folder exists in [font=Courier New]Binaries\Win64\ue4ss\Mods\[/font]
+[*]Ensure that [font=Courier New]RowYourBoat[/font] folder exists in [font=Courier New]Binaries\WinGDK\ue4ss\Mods\[/font]
 [*]Add [font=Courier New]RowYourBoat.esp[/font] to your [font=Courier New]plugins.txt[/font] (also in the Data folder)
 [*]Run MagicLoader 2
 [*]Start the game with MagicLoader 2 or OBSE
