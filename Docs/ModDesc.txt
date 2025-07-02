@@ -38,7 +38,7 @@ Features[/size]
 [*]Adjust everything from rowing speed to wave intensity
 [*]Full compatibility with both vanilla and modded environments
 [/list]
-[b]WARNING: this mod is a script-heavy mod. You may experience some performance impact, especially with a weak CPU. This mod is pushing the limits of the script engine. I’ve spent a lot of time to reduce the performance impact and minimize script execution when the boat is not in use. I personally don’t notice an FPS impact but your mileage may vary.[/b]
+This mod is a script-heavy mod. Most users don't report a performance impact, but your mileage may vary. I spent a lot of time to reduce the performance impact and minimize script execution when the boat is not in use.
 
 
 [size=5]Installation[/size]
