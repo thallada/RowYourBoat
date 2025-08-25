@@ -5,6 +5,8 @@ mod](https://www.nexusmods.com/oblivionremastered/mods/4273).
 
 [YouTube video](https://youtu.be/SE55cqIZNp4)
 
+[Blog post that explains in-depth how I made the mod](https://www.hallada.net/2025/08/24/row-your-boat.html).
+
 ## Scripts
 
 For convienence of editing and viewing. All scripts contained within `RowYourBoat.esp` have been extracted out into the
